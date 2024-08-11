@@ -1,32 +1,43 @@
-import { Button ,TextField, Typography } from "@mui/material";
-import { PATH } from "@renderer/shared/constants";
+import { Button ,TextField} from "@mui/material";
+import { JSON_FORMATE, PATH } from "@renderer/shared/constants";
 import { useState } from "react";
 const path = require("path");
 const fs = require('fs');
-
+const { exec } = require('child_process');
 
 function Project():JSX.Element{
 
     const [filename, setfileName] = useState<string>("");
+    const [krooz, setKrooz] = useState<string>("");
+    const [created, setcreated] = useState<boolean>(false);
 
     const handleCreate = () => {
-        
-        fs.appendFile(path.join(PATH , `${filename}.json`) , 'Hello content!', function (err) {
+        setcreated(true);
+        fs.appendFile(path.join(PATH , `${filename}.json`) , JSON_FORMATE, function (err) {
         if (err) throw err;
-        console.log('Saved!');
-
+        console.log('File created!');
         });
+        setfileName("");
     }
 
-    const handleFile = ( event) => {
+    const handleFile = (event) => {
         setfileName(event.target.value);
+        setKrooz(event.target.value)
+    }
+
+    const handleEdit = () => {
+        let newPath = path.join(PATH, `${krooz}.json`)
+        exec(`notepad "${newPath.replace(/\//g, '\\')}"`);
+        setcreated(false);
+
     }
 
     return(
     <>
-        <TextField  value={filename}  onChange={(e) => handleFile(e)} id="outlined-basic" label="Outlined" variant="outlined" />
-        <Button onClick={handleCreate} sx={{fontFamily:"sans-serif" , fontWeight: "bold"}} variant="contained"> Crerate New</Button>
+        <TextField  value={filename} sx={{margin:1}} onChange={(e) => handleFile(e)} id="outlined-basic" label="create file" variant="filled" />
+        <Button onClick={handleCreate} sx={{ margin:1, fontFamily:"sans-serif" }} variant="contained"> Create New</Button>
 
+        <Button disabled={!created} onClick={handleEdit} sx={{margin:1,fontFamily:"sans-serif" , fontWeight: "bold"}} variant="contained"> Edit</Button>
     </>
     );
 }

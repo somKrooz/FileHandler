@@ -15,6 +15,7 @@ function createWindow(): void {
     show: false,
     darkTheme: true,
     title: 'ProjectManager',
+    icon: join(__dirname, '../../build/krooz.png'),
     opacity: 4,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -25,7 +26,7 @@ function createWindow(): void {
       contextIsolation: false,
       webSecurity: false,
       experimentalFeatures: true,
-      devTools: false
+      devTools: true
     }
   })
 
