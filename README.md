@@ -1,10 +1,12 @@
-# filehandler
+# Project File Manager
 
 An Electron application with React and TypeScript
 
-## Recommended IDE Setup
+This Application is for Handling many files and directories at one place mainly for handling
+project which has to go back and forth between different folders you can store all the paths
+in this application and handle files better.
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+Also i want to learn more about the types in typescript :{
 
 ## Project Setup
 
