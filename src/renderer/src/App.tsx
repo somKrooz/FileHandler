@@ -7,6 +7,7 @@ import './assets/App.css'
 import { useEffect , useState } from "react"
 import ReadFile from "./components/Readfile";
 import {Select, FormControl , MenuItem} from '@mui/material';
+import { PATH } from './shared/constants';
 
 
 function App(): JSX.Element {
@@ -15,8 +16,7 @@ function App(): JSX.Element {
   const [selectedFiles , SetselectedFiles] = useState<string>("");  
   const [selectedpath , Setselectedpath] = useState<string>("");  
 
-  const tempDir:string = os.tmpdir()
-  const folderPath:string = path.join(tempDir, 'KroozCache')
+  const folderPath:string = PATH;
 
   const watcher:any = chokidar.watch(folderPath, {
     ignored: /(^|[\/\\])\../,
