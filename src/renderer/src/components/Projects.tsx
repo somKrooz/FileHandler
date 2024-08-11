@@ -14,8 +14,7 @@ function Project():JSX.Element{
 
     return(
     <>
-    <button onClick={HandleAdd}>Add</button>
-    <button onClick={HandleRemove}>Subtract</button>
+    <h1>test</h1>
        
     </>
     );
