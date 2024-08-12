@@ -34,7 +34,6 @@ function createWindow(): void {
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath)
     } else {
-      console.log('done...')
     }
 
     mainWindow.show()

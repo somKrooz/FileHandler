@@ -1,6 +1,6 @@
 import { PATH } from "@renderer/shared/constants";
 import { useEffect, useState } from "react";
-import { Button, List , ListItemButton } from "@mui/material";
+import { Button, List , ListItemButton} from "@mui/material";
 const fs = require("fs");
 const { exec } = require('child_process');
 const Path = require("path");
@@ -42,6 +42,7 @@ function Manage():JSX.Element{
                     <Button onClick={()=>HandleDelete(file)}  sx={{backgroundColor:"#222222", margin:.8}} variant="outlined">Delete</Button>
                 </div>
             })}
+            
         </List>
         </>
     )

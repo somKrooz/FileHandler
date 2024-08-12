@@ -1,10 +1,9 @@
 {
   "name": "filehandler",
   "version": "1.0.0",
-  "description": "An Electron application with React and TypeScript",
+  "description": "Handle your files at one Place.",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
+  "author": "somkrooz69",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",

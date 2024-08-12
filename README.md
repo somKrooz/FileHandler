@@ -6,7 +6,7 @@ This Application is for Handling many files and directories at one place mainly 
 project which has to go back and forth between different folders you can store all the paths
 in this application and handle files better.
 
-Also i wanted to learn more about the types in typescript :{
+Also i wanted to learn more about the types in typescript :-[]
 
 ## Project Setup
 

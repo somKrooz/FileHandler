@@ -14,3 +14,5 @@ export const JSON_FORMATE = `{
       "version": "1.0.0"
     }
   }`
+
+export const AUTHOR:string = "Som Krooz"
