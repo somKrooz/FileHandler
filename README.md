@@ -8,6 +8,10 @@ in this application and handle files better.
 
 Also i wanted to learn more about the types in typescript :-[]
 
+## Json Based Configuration
+
+<img src="./Previews/JsonPreview.png" width="1000" /><hr>
+
 ## Project Setup
 
 ### Install
@@ -34,9 +38,3 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
-
-### Preview
-
-<img src="./Previews/CreateView.png" width="700" /><hr>
-<img src="./Previews/JsonPreview.png" width="700" /><hr>
-<img src="./Previews/ManageView.png" width="700" /><hr>
