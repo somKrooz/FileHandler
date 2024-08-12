@@ -38,6 +38,5 @@ $ npm run build:linux
 ### Preview
 
 <img src="./Previews/CreateView.png" width="500" /><hr>
-<img src="./Previews/ProjectView.png.png.png" width="500" /><hr>
-<img src="./Previews/JsonPreview.png.png" width="500" /><hr>
-<img src="./Previews/ManageView.png.png.png" width="500" />
+<img src="./Previews/JsonPreview.png" width="500" /><hr>
+<img src="./Previews/ManageView.png" width="500" /><hr>
