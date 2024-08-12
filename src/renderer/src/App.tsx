@@ -1,6 +1,5 @@
 const path = require('path')
 const fs = require('fs')
-const os = require('os')
 const chokidar = require('chokidar');
 import './assets/App.css'
 
@@ -44,7 +43,7 @@ function App(): JSX.Element {
 
     watcher.close()
 
-  },[watcher , folderPath])
+  },[watcher])
 
   const handleSelectChange = (event) => {
     const value = event.target.value;

@@ -38,8 +38,8 @@ function Manage():JSX.Element{
         <List>
             {files.map((file,i)=>{
                 return <div className="manage-card"> 
-                    <ListItemButton onClick={()=>handleClick(file)} key={i} >{file}</ListItemButton>
-                    <Button onClick={()=>HandleDelete(file)}  sx={{margin:1}} variant="contained">Delete</Button>
+                    <ListItemButton sx={{borderRadius:3,margin: .4, backgroundColor: "#2b2b2b", fontFamily: "sans-serif", fontSize: "small", fontWeight:"bold",color:"white"}} onClick={()=>handleClick(file)} key={i} >{file}</ListItemButton>
+                    <Button onClick={()=>HandleDelete(file)}  sx={{backgroundColor:"#222222", margin:.8}} variant="outlined">Delete</Button>
                 </div>
             })}
         </List>

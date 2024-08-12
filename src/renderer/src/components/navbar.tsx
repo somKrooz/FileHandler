@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material";
+import "../assets/nav.css";
 
 function Navbar():JSX.Element {
     return(

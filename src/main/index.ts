@@ -1,32 +1,29 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
 const path = require('path')
 const fs = require('fs')
 const os = require('os')
 
+let icon = join(__dirname, '../../build/icon.png')
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 670,
-    resizable: false,
+    width: 450,
+    height: 650,
     show: false,
-    darkTheme: true,
-    title: 'ProjectManager',
-    icon: join(__dirname, '../../build/krooz.png'),
-    opacity: 4,
+    title: 'File Manager',
+    resizable: false,
+    icon: join(__dirname, '../../build/icon.png'),
+
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false,
       nodeIntegration: true,
       contextIsolation: false,
       webSecurity: false,
-      experimentalFeatures: true,
-      devTools: true
+      devTools: false
     }
   })
 
@@ -37,6 +34,7 @@ function createWindow(): void {
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath)
     } else {
+      console.log('done...')
     }
 
     mainWindow.show()
@@ -69,9 +67,6 @@ app.whenReady().then(() => {
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
   })
-
-  // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
 
   createWindow()
 

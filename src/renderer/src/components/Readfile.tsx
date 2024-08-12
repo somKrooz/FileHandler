@@ -1,8 +1,10 @@
 import { useEffect , useState } from "react";
 import {Button, List , ListItemButton, Typography} from '@mui/material';
 const { exec } = require('child_process');
+const chokidar = require('chokidar');
 
 import "../assets/Readfile.css"
+import { PATH } from "@renderer/shared/constants";
 
 type Data = {
 
@@ -11,6 +13,13 @@ type Data = {
 }
 
 function ReadFile(props:Data): JSX.Element {
+
+    const [update , setupdate] = useState<number>(0)
+    const watcher:any = chokidar.watch(PATH, {
+        ignored: /(^|[\/\\])\../,
+        persistent: true,
+      });
+
     const [paths , setpaths] = useState<string[]>([]) 
     const [name , setname] = useState<string>("") 
     const [isDisabled , setisDisabled] = useState<boolean>(true)
@@ -24,6 +33,14 @@ function ReadFile(props:Data): JSX.Element {
         });
     }
     useEffect(() => {
+        watcher
+        .on('add', _ => {
+            setupdate(update+1)
+        }).on('unlink', _ => {
+            setupdate(update+1)
+        });
+    
+        watcher.close()
 
         if (props.path != "")
         {
@@ -37,7 +54,8 @@ function ReadFile(props:Data): JSX.Element {
             setname(data.projectName)
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    },[props.path]);
+
+    },[watcher]);
 
     const handleClick = (val) => {
         if (val) {
@@ -49,15 +67,15 @@ function ReadFile(props:Data): JSX.Element {
     return (
         <div className="center">
 
-        <Typography sx={{ color:"white",margin:1,fontSize: "small"}} variant="h6" >{name} </Typography>
-        <List sx={{margin:1,fontSize: "small"}}>
+        <Typography sx={{color:"white",fontSize: "small"}} variant="h6" >{name} </Typography>
+        <List  sx={{overflow: "clip", scrollbarWidth:2,margin:1,fontSize: "small"}}>
             {paths.map((path,index)=>{
-                return <ListItemButton sx={{color:"white",margin:1,fontSize: "small",fontWeight: "bold"}} key={index} onClick={()=>handleClick(path)}> {path} </ListItemButton>
+                return <ListItemButton  sx={{border:1,borderRadius:5, width:200,color:"white",margin:1,fontSize: "small",fontWeight: "bold"}} key={index} onClick={()=>handleClick(path)}> {path} </ListItemButton>
             })}
 
         </List>
 
-        <Button disabled={isDisabled} sx={{margin: 1}} variant="outlined" onClick={OpenFiles}>Open</Button>
+        <Button disabled={isDisabled} variant="outlined" onClick={OpenFiles}>Open</Button>
         </div>
     );
 }
