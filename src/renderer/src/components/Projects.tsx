@@ -27,7 +27,7 @@ function Project():JSX.Element{
 
     const handleEdit = () => {
         let newPath = path.join(PATH, `${krooz}.json`)
-        exec(`notepad "${newPath.replace(/\//g, '\\')}"`);
+        exec(`start notepad++ "${newPath.replace(/\//g, '\\')}"`);
         setcreated(false);
 
     }
@@ -36,7 +36,6 @@ function Project():JSX.Element{
     <>
         <TextField  value={filename} sx={{margin:1}} onChange={(e) => handleFile(e)} id="outlined-basic" label="create file" variant="filled" />
         <Button onClick={handleCreate} sx={{ margin:1, fontFamily:"sans-serif" }} variant="contained"> Create New</Button>
-
         <Button disabled={!created} onClick={handleEdit} sx={{margin:1,fontFamily:"sans-serif" , fontWeight: "bold"}} variant="contained"> Edit</Button>
     </>
     );

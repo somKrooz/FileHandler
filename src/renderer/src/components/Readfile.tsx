@@ -75,7 +75,7 @@ function ReadFile(props:Data): JSX.Element {
 
         </List>
 
-        <Button disabled={isDisabled} variant="outlined" onClick={OpenFiles}>Open</Button>
+        <Button disabled={isDisabled} variant="outlined" onClick={OpenFiles}>Open All</Button>
         </div>
     );
 }

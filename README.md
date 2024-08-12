@@ -34,3 +34,10 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+### Preview
+
+<img src="./Previews/CreateView.png" width="300" /><hr>
+<img src="./Previews/ProjectView.png.png.png" width="300" /><hr>
+<img src="./Previews/JsonPreview.png.png" width="300" /><hr>
+<img src="./Previews/ManageView.png.png.png" width="300" />
