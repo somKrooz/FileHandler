@@ -1,10 +1,12 @@
 import { useEffect , useState } from "react";
-import {Button, List , ListItemButton, Typography} from '@mui/material';
+import {Button, List , ListItemButton, Typography, Select, MenuItem} from '@mui/material';
 const { exec } = require('child_process');
 const chokidar = require('chokidar');
+const fs = require('fs');
+const path = require('path');
 
 import "../assets/Readfile.css"
-import { PATH } from "@renderer/shared/constants";
+import { PATH,PYTHONPATH } from "@renderer/shared/constants";
 
 type Data = {
 
@@ -21,6 +23,8 @@ function ReadFile(props:Data): JSX.Element {
       });
 
     const [paths , setpaths] = useState<string[]>([]) 
+    const [script , setscript] = useState<string>('') 
+    const [pythonfile,setpythonfile] = useState<string[]>([])
     const [name , setname] = useState<string>("") 
     const [isDisabled , setisDisabled] = useState<boolean>(true)
 
@@ -33,6 +37,8 @@ function ReadFile(props:Data): JSX.Element {
         });
     }
     useEffect(() => {
+        let filenames:string[] = fs.readdirSync(PYTHONPATH);
+        setpythonfile(filenames);
         watcher
         .on('add', _ => {
             setupdate(update+1)
@@ -55,14 +61,23 @@ function ReadFile(props:Data): JSX.Element {
         })
         .catch(error => console.error('Error fetching JSON:', error));
 
-    },[watcher]);
+    },[watcher,pythonfile]);
 
     const handleClick = (val) => {
         if (val) {
             exec(`explorer "${val.replace(/\//g, '\\')}"`);
             }
         
-      };
+    };
+
+    const HandlePython = ()=>{
+        let RUNscript = path.join(PYTHONPATH,script)
+        const command = `python "${RUNscript}" ${PYTHONPATH}`;
+
+        exec(command);
+        
+    }
+
     
     return (
         <div className="center">
@@ -74,8 +89,19 @@ function ReadFile(props:Data): JSX.Element {
             })}
 
         </List>
+        <Typography sx={{color:"GrayText",fontSize: "small"}} variant="h6" >Attach Python Script</Typography>
+        <Select sx={{fontSize: 12, fontFamily: 'sans-serif',fontWeight: "bold" ,  padding: 1, marginBottom:3, color: "white"}}
+        >
+            {pythonfile.map((file, index) => (
+                <MenuItem onClick={()=>setscript(file)} sx={{fontSize:"small" , fontFamily: "sans-serif"}} key={index} value={file}>{file}</MenuItem>
+            ))}
+            </Select>
 
-        <Button disabled={isDisabled} variant="outlined" onClick={OpenFiles}>Open All</Button>
+        
+        <div className="btns">
+        <Button sx={{fontSize:10,margin:1}}  disabled={isDisabled} variant="contained" onClick={OpenFiles}>Open</Button>
+        <Button sx={{fontSize:10,backgroundColor:"GrayText", margin:1}} variant="contained" onClick={HandlePython} >pyhton</Button>
+        </div>
         </div>
     );
 }

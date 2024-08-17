@@ -12,6 +12,7 @@ function Manage():JSX.Element{
 
     useEffect(() => {
     let filenames:string[] = fs.readdirSync(PATH);
+    filenames = filenames.filter(filename => filename !== 'python');
     setFiles(filenames);
         
     },[files]);

@@ -23,17 +23,20 @@ function createWindow(): void {
       nodeIntegration: true,
       contextIsolation: false,
       webSecurity: false,
-      devTools: false
+      devTools: true
     }
   })
 
   mainWindow.on('ready-to-show', () => {
     const tempDir = os.tmpdir()
     const folderPath = path.join(tempDir, 'KroozCache')
+    const pythonPath = path.join(tempDir, 'KroozCache', 'python')
 
     if (!fs.existsSync(folderPath)) {
       fs.mkdirSync(folderPath)
-    } else {
+    }
+    if (!fs.existsSync(pythonPath)) {
+      fs.mkdirSync(pythonPath)
     }
 
     mainWindow.show()

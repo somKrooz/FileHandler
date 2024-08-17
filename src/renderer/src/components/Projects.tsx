@@ -34,7 +34,7 @@ function Project():JSX.Element{
 
     return(
     <>
-        <TextField  value={filename} sx={{margin:1}} onChange={(e) => handleFile(e)} id="outlined-basic" label="create file" variant="filled" />
+        <TextField  value={filename} sx={{fontFamily:"sans-serif",margin:1}} onChange={(e) => handleFile(e)} id="outlined-basic" label="create file" variant="filled" />
         <Button onClick={handleCreate} sx={{ margin:1, fontFamily:"sans-serif" }} variant="contained"> Create New</Button>
         <Button disabled={!created} onClick={handleEdit} sx={{margin:1,fontFamily:"sans-serif" , fontWeight: "bold"}} variant="contained"> Edit</Button>
     </>

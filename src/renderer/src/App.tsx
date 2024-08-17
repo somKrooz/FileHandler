@@ -1,7 +1,10 @@
 const path = require('path')
 const fs = require('fs')
 const chokidar = require('chokidar');
+
+
 import './assets/App.css'
+
 
 import { useEffect , useState } from "react"
 import ReadFile from "./components/Readfile";
@@ -25,7 +28,9 @@ function App(): JSX.Element {
   const handleFiles = () => {
     try {
       let filenames = fs.readdirSync(folderPath);
+      filenames = filenames.filter(filename => filename !== 'python');
       setFiles(filenames); 
+
     } catch (error) {
       console.error('Error reading directory:', error);
       setFiles([]); 
