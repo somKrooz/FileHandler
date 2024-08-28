@@ -1,6 +1,6 @@
 const os = require('os');
 const path = require('path');
-const app = require('electron');
+// const app = require('electron');
 
 export const PATH:string =  path.join(os.tmpdir(), 'KroozCache')  
 export const PYTHONPATH:string =  path.join(os.tmpdir(), 'KroozCache', 'python')  

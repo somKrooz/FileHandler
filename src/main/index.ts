@@ -23,7 +23,7 @@ function createWindow(): void {
       nodeIntegration: true,
       contextIsolation: false,
       webSecurity: false,
-      devTools: true
+      devTools: false
     }
   })
 

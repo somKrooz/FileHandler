@@ -1,0 +1,98 @@
+.fire-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 50%;
+    padding: 10px;
+    margin: 2px;
+    box-sizing: border-box;
+    border: 2px solid #262424;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    background-color: #282828;
+    transition: border-color 0.3s ease-in-out;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #66afe9;
+    outline: none;
+    background-color: #595959;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #7d7d7d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #434343;
+}
+
+
+/* Fire button inside the list */
+ol{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+ol li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px;
+    margin: 5px;   
+    background-color: #3d3d3d;
+    border-radius: 10px;
+    white-space: nowrap;       
+    overflow: hidden;         
+    text-overflow: ellipsis;
+}
+
+ol li span {
+    flex-grow: 1;             
+    overflow: hidden;         
+    text-overflow: ellipsis;    /* Show ellipsis if the text overflows */
+    white-space: nowrap;        /* Prevent text from wrapping */
+    margin-right: 10px;         /* Add some space between text and the delete button */
+}
+
+/* Fire button inside the list */
+.fire-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #454343;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.fire-btn:hover {
+    background-color: #c82333;
+}
+
+#create{
+    font-weight: bold;
+    background-color: rgb(26, 25, 24);
+}
+
+#create:hover{
+    background-color: rgb(151, 60, 84);
+}

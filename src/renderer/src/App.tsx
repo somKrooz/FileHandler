@@ -57,7 +57,6 @@ function App(): JSX.Element {
   };
 
   return (
-        
     <div className="Krooz">
     <FormControl variant="standard" sx={{ fontSize: "small" }}>
      <Select sx={{fontSize: 12, fontFamily: 'sans-serif',fontWeight: "bold" ,  padding: 1, marginBottom:3, color: "white"}}
