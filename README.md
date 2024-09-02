@@ -38,3 +38,6 @@ $ npm run build:mac
 # For Linux
 $ npm run build:linux
 ```
+
+### New Additions
+* Added Support to attach a Python Script to the file Path for execute an Automated Task.
