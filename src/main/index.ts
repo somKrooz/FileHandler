@@ -9,8 +9,8 @@ let icon = join(__dirname, '../../build/icon.png')
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 450,
-    height: 650,
+    width: 650,
+    height: 700,
     show: false,
     title: 'File Manager',
     resizable: false,
@@ -23,7 +23,7 @@ function createWindow(): void {
       nodeIntegration: true,
       contextIsolation: false,
       webSecurity: false,
-      devTools: false
+      devTools: true
     }
   })
 

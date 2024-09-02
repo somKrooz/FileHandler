@@ -19,7 +19,7 @@ function Manage():JSX.Element{
 
     const handleClick = (path:any) =>{
         let newPath = Path.join(PATH, path)
-        exec(`start notepad++ "${newPath.replace(/\//g, '\\')}"`);
+        exec(`notepad "${newPath.replace(/\//g, '\\')}"`);
         
     }
 
